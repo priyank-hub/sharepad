@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 
 import Login from './Pages/Login';
+import Register from './Pages/Register';
 import Dashboard from './Pages/Dashboard';
 
 import PrivateRoute from './Utils/PrivateRoute';
@@ -40,6 +41,7 @@ function App() {
             <Switch>
               {/* <Route exact path="/" component={Home} /> */}
               <PublicRoute path="/login" component={Login} />
+              <PublicRoute path="/register" component={Register} />
               <PrivateRoute path="/dashboard" component={Dashboard} />
             </Switch>
           </div>

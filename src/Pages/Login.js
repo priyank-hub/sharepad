@@ -12,7 +12,7 @@ function Login(props) {
   const handleLogin= () => {
     setError(null);
     setLoading(true);
-    console.log('email', email.value, 'password', password.value);
+    // console.log('email', email.value, 'password', password.value);
     axios.post('http://localhost:5000/user/login', { email: email.value, password: password.value }).then(response => {
       setLoading(false);
       console.log('response', response);
@@ -51,7 +51,7 @@ function Login(props) {
 
           <div className='flex flex-row h-screen justify-center items-center bg-indigo-900'>
             <div className='w-1/3'>
-              <form className="">
+              <form className="" onSubmit={handleLogin}>
                 <div className="md:flex md:items-center mb-6"> 
                   <div className="md:w-1/4">
                     <label className="block text-white font-bold md:text-center mb-1 md:mb-0 pr-4" for="inline-full-name">
@@ -87,9 +87,10 @@ function Login(props) {
                       <div className="my-3">
                         {error && <><small style={{ color: 'white' }}>{error}</small><br /></>}
                       </div>
-                      <input type="button" value={loading ? 'Loading...' : 'Sign Me In'} onClick={handleLogin} disabled={loading} 
+                      <input type="submit"  value={loading ? 'Loading...' : 'Sign Me In'} disabled={loading}
                             className="shadow text-indigo-900 focus:shadow-outline focus:outline-none
-                            font-bold py-2 px-4 rounded" style={{ backgroundColor: 'white' }}/><br />
+                            font-bold py-2 px-4 rounded" style={{ backgroundColor: 'white' }} />
+                      <br />
                     </div>
                   </div>
                 </div>
