@@ -1,37 +1,3 @@
-
-// import React, { useState } from 'react';
-// import Dashboard from './Pages/Dashboard';
-// import Login from './Pages/Login';
-
-// // import { BrowserRouter as Router } from "react-router-dom";
-// // import { Switch, Route, Routes } from "react-router-dom";
-
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-// function App() {
-
-//   const [token, setToken] = useState();
-
-//   if(!token) {
-//     return <Login setToken={setToken} />
-//   }
-//   return (
-//     <BrowserRouter>
-//       <div className="App">
-//         <div className="wrapper">        
-            
-//             <Routes>
-//               <Route path="/login" component={ Login } />
-//               <Route path="/dashboard" component={ Dashboard } />
-//             </Routes>          
-//         </div>
-//       </div>
-//     </BrowserRouter>
-//   );
-// }
-
-// export default App;
-
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 
@@ -40,8 +6,27 @@ import Dashboard from './Pages/Dashboard';
 
 import PrivateRoute from './Utils/PrivateRoute';
 import PublicRoute from './Utils/PublicRoute';
+// import { getToken, removeUserSession, setUserSession } from './Utils/Common';
 
 function App() {
+
+  // const [authLoading, setAuthLoading] = useState(true);
+
+  // useEffect(() => {
+  //   const token = getToken();
+  //   if (!token) {
+  //     return;
+  //   }
+ 
+  //   axios.get(`http://localhost:4000/verifyToken?token=${token}`).then(response => {
+  //     setUserSession(response.data.token, response.data.user);
+  //     setAuthLoading(false);
+  //   }).catch(error => {
+  //       removeUserSession();
+  //       setAuthLoading(false);
+  //     });
+  //   }, []);
+
   return (
     <div className="App">
       <Router>
