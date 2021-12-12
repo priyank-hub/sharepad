@@ -12,7 +12,7 @@ function Login(props) {
   const handleLogin= () => {
     setError(null);
     setLoading(true);
-    // console.log('email', email.value, 'password', password.value);
+
     axios.post('http://localhost:5000/user/login', { email: email.value, password: password.value }).then(response => {
       setLoading(false);
       console.log('response', response);
@@ -31,25 +31,10 @@ function Login(props) {
   }
 
   return (
-    // <div>
-    //   Login<br /><br />
-    //   <div>
-    //     Username<br />
-    //     <input type="text" {...username} autoComplete="new-password" className='border border-gray-500'/>
-    //   </div>
-    //   <div style={{ marginTop: 10 }}>
-    //     Password<br />
-    //     <input type="password" {...password} autoComplete="new-password" className='border border-gray-500'/>
-    //   </div>
-    //   {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
-    //   <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={handleLogin} disabled={loading} /><br />
-    // </div>
-
       <div>
         <div className='container-fluid'> 
-
-
           <div className='flex flex-row h-screen justify-center items-center bg-indigo-900'>
+            
             <div className='w-1/3'>
               <form className="" onSubmit={handleLogin}>
                 <div className="md:flex md:items-center mb-6"> 
@@ -95,8 +80,8 @@ function Login(props) {
                   </div>
                 </div>
               </form>
-
             </div>
+          
           </div>
         </div>
       </div>

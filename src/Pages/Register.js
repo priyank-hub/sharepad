@@ -10,19 +10,9 @@ function Register(props) {
   const password = useFormInput('');
   const [error, setError] = useState(null);
 
-  // handle button click of login form
-  const handleRegister= () => {
-    setError(null);
-    setLoading(true);
-
-    console.log('email', email.value, 'password', password.value);
-
-    axios.post('http://localhost:5000/user/login', {
-        first_name: first_name.value,
-        last_name: last_name.value, 
-        email: email.value, 
-        password: password.value
-    }).then(response => {
+  const logIn = () => {
+    axios.post('http://localhost:5000/user/login', { email: email.value, password: password.value })
+    .then(response => {
       setLoading(false);
       console.log('response', response);
       const user = {
@@ -31,11 +21,37 @@ function Register(props) {
         email: response.data.email, 
       }
       setUserSession(response.data.token, user);
-      props.history.push('/login');
+      props.history.push('/dashboard');
     }).catch(error => {
       setLoading(false);
       if (error.response.status === 401) setError(error.response.data.message);
       else setError("Invalid Credentials, Please try again!");
+    });  
+  }
+
+  // handle button click of login form
+  const handleRegister= (e) => {
+    setError(null);
+    setLoading(true);
+    e.preventDefault();
+
+    axios.post('http://localhost:5000/user/register', {
+        first_name: first_name.value,
+        last_name: last_name.value, 
+        email: email.value, 
+        password: password.value
+    }).then(response => {
+        // setLoading(false);
+        console.log('response', response);
+        logIn();
+
+    }).catch(error => {
+        console.log('error', error);
+      setLoading(false);
+      if (error.response.status === 401) setError(error.response.data.message);
+      else if (error.response.status === 409) {
+        setError('User Already Exist. Please Login');
+      }
     });
   }
 
@@ -106,8 +122,11 @@ function Register(props) {
                     <div className="md:w-1/3">
                       
                     </div>
-                    <div className="md:w-full my-5">
-                      <input type="submit" value={loading ? 'Loading...' : 'Register'} disabled={loading} 
+                    <div className="md:w-full">
+                        <div className="my-3">
+                            {error && <><small style={{ color: 'white' }}>{error}</small><br /></>}
+                        </div>
+                      <input type="submit" value={loading ? 'Logging you In...' : 'Register'} disabled={loading} 
                             className="shadow text-indigo-900 focus:shadow-outline focus:outline-none
                             font-bold py-2 px-4 rounded" style={{ backgroundColor: 'white' }}/><br />
                     </div>
