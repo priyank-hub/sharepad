@@ -52,7 +52,7 @@ function Login(props) {
           <div className='flex flex-row h-screen justify-center items-center bg-indigo-900'>
             <div className='w-1/3'>
               <form className="">
-                <div className="md:flex md:items-center mb-6">
+                <div className="md:flex md:items-center mb-6"> 
                   <div className="md:w-1/4">
                     <label className="block text-white font-bold md:text-center mb-1 md:mb-0 pr-4" for="inline-full-name">
                       Email
