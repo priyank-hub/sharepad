@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { setUserSession } from '../Utils/Common';
+import logo from '../assets/logos/1.png';
 
 function Register(props) {
   const [loading, setLoading] = useState(false);
@@ -57,14 +58,17 @@ function Register(props) {
 
   return (
       <div>
-        <div className='container-fluid'> 
-          <div className='flex flex-row h-screen justify-center items-center bg-indigo-900'>
-            <div className='md:w-1/3 lg:w:2/3'>
+        <div className='container-fluid bg-indigo-900' style={{ minHeight: '100vh' }}> 
+          <div className='flex flex-col justify-center items-center'>
+            <div>
+              <img src={logo} width={200}/>
+            </div>
+            <div className='md:w-1/3 lg:w-1/3 mb-4'>
               <form className="" onSubmit={handleRegister}>
 
-                <div className="md:flex md:items-center mb-6"> 
-                  <div className="md:w-1/3">
-                    <label className="block text-white font-bold md:text-center mb-1 md:mb-0 pr-4" for="inline-full-name">
+                <div className="md:flex flex-col md:items-center mb-6"> 
+                  <div className="md:w-full">
+                    <label className="block text-white font-bold text-left mb-1 pr-4" for="inline-full-name">
                       First Name
                     </label>
                   </div>
@@ -76,9 +80,9 @@ function Register(props) {
                   </div>
                 </div>
 
-                <div className="md:flex md:items-center mb-6"> 
-                  <div className="md:w-1/3">
-                    <label className="block text-white font-bold md:text-center mb-1 md:mb-0 pr-4" for="inline-full-name">
+                <div className="md:flex flex-col md:items-center mb-6"> 
+                  <div className="md:w-full">
+                    <label className="block text-white font-bold text-left mb-1 pr-4" for="inline-full-name">
                       Last Name
                     </label>
                   </div>
@@ -90,9 +94,9 @@ function Register(props) {
                   </div>
                 </div>
 
-                <div className="md:flex md:items-center mb-6"> 
-                  <div className="md:w-1/3">
-                    <label className="block text-white font-bold md:text-center mb-1 md:mb-0 pr-4" for="inline-full-name">
+                <div className="md:flex flex-col md:items-center mb-6"> 
+                  <div className="md:w-full">
+                    <label className="block text-white font-bold text-left mb-1 pr-4" for="inline-full-name">
                       Email
                     </label>
                   </div>
@@ -104,9 +108,9 @@ function Register(props) {
                   </div>
                 </div>
                 
-                <div className="md:flex md:items-center">
-                  <div className="md:w-1/3">
-                    <label className="block text-white font-bold md:text-center mb-1 md:mb-0 pr-4" for="inline-password">
+                <div className="md:flex flex-col md:items-center">
+                  <div className="md:w-full">
+                    <label className="block text-white font-bold text-left mb-1 pr-4" for="inline-password">
                       Password
                     </label>
                   </div>
@@ -119,9 +123,6 @@ function Register(props) {
                 </div>
                 <div className="flex flex-col">
                   <div className='flex flex-row'>
-                    <div className="md:w-1/3">
-                      
-                    </div>
                     <div className="md:w-full">
                         <div className="my-3">
                             {error && <><small style={{ color: 'white' }}>{error}</small><br /></>}

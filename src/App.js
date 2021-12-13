@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 
 import Login from './Pages/Login';
