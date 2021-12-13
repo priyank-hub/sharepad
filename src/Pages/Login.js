@@ -51,7 +51,7 @@ function Login(props) {
                     <input {...email}
                           className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 
                                 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" 
-                                type="email" required/>
+                                type="email" placeholder="john@doe.com" required/>
                   </div>
                 </div>
                 <div className="md:flex flex-col md:items-center">
