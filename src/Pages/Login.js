@@ -32,7 +32,10 @@ function Login(props) {
     }).catch(error => {
       setLoading(false);
       if (error.response.status === 401) setError(error.response.data.message);
-      else setError("Invalid Credentials, Please try again!");
+      else {
+        setError("Invalid Credentials, Please try again!");
+        console.log('error', error);
+      } 
     });
   }
 
@@ -59,7 +62,10 @@ function Login(props) {
           {/* login form */}
           <form onSubmit={handleLogin} className='' style={{ minWidth: '30%', maxWidth: '80%'}}>
             <TextField {...email} type={'email'} fullWidth label="Email" id="fullWidth" className='my-3' required/>
-            <TextField {...password} type={'Password'} fullWidth label="Password" id="fullWidth" className='my-3' required/>
+            <TextField {...password} type={'Password'} fullWidth label="Password" id="fullWidth" className='mt-3' required/>
+            <div className="my-3">
+              {error && <><small style={{ color: 'black' }}>{error}</small><br /></>}
+            </div>
             <input type="submit" className='btn' style={{ color: '#fff', backgroundColor: '#3C366B' }} value={loading ? 'Loading...' : 'Sign Me In'} disabled={loading}>
             </input>
           </form>

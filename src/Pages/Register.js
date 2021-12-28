@@ -93,7 +93,7 @@ function Register(props) {
           </Box>
         </div>
 
-        <div className='container-fluid bg-indigo-900' style={{ minHeight: '100vh' }}> 
+        <div className='d-none container-fluid bg-indigo-900' style={{ minHeight: '100vh' }}> 
           <div className='flex flex-col justify-center items-center'>
             <div>
               <img src={logo} width={200}/>
