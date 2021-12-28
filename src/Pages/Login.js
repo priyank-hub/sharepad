@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { setUserSession } from '../Utils/Common';
-import logo from '../assets/logos/1.png';
+import logo from '../assets/logos/SharePadColored.png';
+
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
 
 function Login(props) {
   const [loading, setLoading] = useState(false);
@@ -34,57 +38,32 @@ function Login(props) {
 
   return (
       <div>
-        <div className='container-fluid'> 
-          <div className='flex flex-col h-screen justify-center items-center bg-indigo-900'>
-            <div>
-              <img src={logo} width={300}/>
-            </div>
-            <div className='md:w-1/3'>
-              <form className="" onSubmit={handleLogin}>
-                <div className="md:flex md:items-center flex-col mb-3"> 
-                  <div className="md:w-full mb-2">
-                    <label className="block text-white font-bold text-left mb-1 md:mb-0 pr-4" for="inline-full-name">
-                      Email
-                    </label>
-                  </div>
-                  <div className="md:w-full">
-                    <input {...email}
-                          className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 
-                                leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-full-name" 
-                                type="email" placeholder="john@doe.com" required/>
-                  </div>
-                </div>
-                <div className="md:flex flex-col md:items-center">
-                  <div className="md:w-full mb-2">
-                    <label className="block text-white font-bold text-left mb-1 md:mb-0 pr-4" for="inline-password">
-                      Password
-                    </label>
-                  </div>
-                  <div className="md:w-full">
-                    <input {...password}
-                          className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 
-                                leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="inline-password" 
-                                type="password" placeholder="**********" />
-                  </div>
-                </div>
-                <div className="flex flex-col">
-                  <div className='flex flex-row'>
-                    <div className="md:w-full">
-                      <div className="my-3">
-                        {error && <><small style={{ color: 'white' }}>{error}</small><br /></>}
-                      </div>
-                      <input type="submit"  value={loading ? 'Loading...' : 'Sign Me In'} disabled={loading}
-                            className="shadow text-indigo-900 focus:shadow-outline focus:outline-none
-                            font-bold py-2 px-4 rounded" style={{ backgroundColor: 'white' }} />
-                      <br />
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
-          
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            p: 1,
+            m: 1,
+            alignItems: 'center',
+            height: '100vh',
+            margin: 'none',
+            color: 'white',
+          }}
+        >
+          {/* img #3C366B */}
+          <div>
+            <img src={logo} width={500}/>
           </div>
-        </div>
+
+          {/* login form */}
+          <form onSubmit={handleLogin} className='' style={{ minWidth: '30%', maxWidth: '80%'}}>
+            <TextField {...email} type={'email'} fullWidth label="Email" id="fullWidth" className='my-3' required/>
+            <TextField {...password} type={'Password'} fullWidth label="Password" id="fullWidth" className='my-3' required/>
+            <input type="submit" className='btn' style={{ color: '#fff', backgroundColor: '#3C366B' }} value={loading ? 'Loading...' : 'Sign Me In'} disabled={loading}>
+            </input>
+          </form>
+        </Box>
       </div>
   );
 }

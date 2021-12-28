@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { setUserSession } from '../Utils/Common';
-import logo from '../assets/logos/1.png';
+import logo from '../assets/logos/SharePadColored.png';
+
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 function Register(props) {
   const [loading, setLoading] = useState(false);
@@ -58,6 +61,38 @@ function Register(props) {
 
   return (
       <div>
+
+        <div>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              p: 1,
+              m: 1,
+              alignItems: 'center',
+              height: '100vh',
+              margin: 'none',
+              color: 'white',
+            }}
+          >
+            {/* img #3C366B */}
+            <div>
+              <img src={logo} width={500}/>
+            </div>
+
+            {/* login form */}
+            <form onSubmit={handleRegister} className='' style={{ minWidth: '30%', maxWidth: '70%'}}>
+              <TextField {...first_name} fullWidth label="First Name" className='my-3' required/>
+              <TextField {...last_name} fullWidth label="Last Name" className='my-3' required/>
+              <TextField {...email} type={'email'} fullWidth label="Email" className='my-3' required/>
+              <TextField {...password} type={'password'} fullWidth label="Password" className='my-3' required/>
+              <input type="submit" className='btn' style={{ color: '#fff', backgroundColor: '#3C366B' }} value={loading ? 'Loading...' : 'Sign Me In'} disabled={loading}>
+              </input>
+            </form>
+          </Box>
+        </div>
+
         <div className='container-fluid bg-indigo-900' style={{ minHeight: '100vh' }}> 
           <div className='flex flex-col justify-center items-center'>
             <div>

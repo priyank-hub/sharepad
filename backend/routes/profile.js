@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 let Profile = require('../models/Profile');
 var multer = require('multer');
 
-var aws = require('aws-sdk')
+// var aws = require('aws-sdk')
 var multerS3 = require('multer-s3')
 
 //current
@@ -47,10 +47,10 @@ const filefilter = (req, file, cb) => {
 
 const upload = multer({ storage: storage, fileFilter: filefilter });
 
-const s3 = new aws.S3({
-    accessKeyId:process.env.AWS_ACCESS_KEY,              // accessKeyId that is stored in .env file
-    secretAccessKey:process.env.AWS_SECRET_ACCESS_KEY       // secretAccessKey is also store in .env file
-})
+// const s3 = new aws.S3({
+//     accessKeyId:process.env.AWS_ACCESS_KEY,              // accessKeyId that is stored in .env file
+//     secretAccessKey:process.env.AWS_SECRET_ACCESS_KEY       // secretAccessKey is also store in .env file
+// })
   
 //previous
 // var storage = multer.diskStorage({
