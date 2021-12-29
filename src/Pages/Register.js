@@ -52,10 +52,10 @@ function Register(props) {
     }).catch(error => {
         console.log('error', error);
       setLoading(false);
-      if (error.response.status === 401) setError(error.response.data.message);
-      else if (error.response.status === 409) {
-        setError('User Already Exist. Please Login');
-      }
+      // if (error.response.status === 401) setError(error.response.data.message);
+      // else if (error.response.status === 409) {
+      //   setError('User Already Exist. Please Login');
+      // }
     });
   }
 

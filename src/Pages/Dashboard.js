@@ -47,40 +47,13 @@ function Dashboard(props) {
   return(
     <div>
       <div className=''>
-          <Navigation />
+          <Navigation props={props}/>
           <div>
-            <form onSubmit={handleSubmit} encType='multipart/form-data' className='flex flex-col'>
-              <input 
-                  type="file" 
-                  accept=".png, .jpg, .jpeg"
-                  name="photo"
-                  onChange={handlePhoto}
-              />
-
-              <input 
-                  type="text"
-                  placeholder="name"
-                  name="name"
-                  value={newUser.name}
-                  onChange={handleChange}
-              />
-
-                <input 
-                  type="text"
-                  placeholder="name"
-                  name="bio"
-                  value={newUser.bio}
-                  onChange={handleChange}
-                />
-
-              <input 
-                  type="submit"
-              />
-            </form>
+            
           </div>
       </div>
       <h2>Dashboard</h2>
-      <input type="button" onClick={handleLogout} value="Logout" />
+      {/* <input type="button" onClick={handleLogout} value="Logout" /> */}
     </div>
     
   );
