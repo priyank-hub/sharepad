@@ -3,6 +3,9 @@ import { getUser, removeUserSession } from '../Utils/Common';
 import Navigation from '../Components/Navigation';
 import axios from 'axios';
 
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
+
 function Dashboard(props) {
 
   const [newUser, setNewUser] = useState(
@@ -50,6 +53,13 @@ function Dashboard(props) {
         <Navigation props={props}/>
       </div>
       <h2>Dashboard</h2>
+      <div className='container'>
+        <Stack spacing={1}>
+          <Skeleton variant="text" />
+          <Skeleton variant="circular" width={40} height={40} />
+          <Skeleton variant="rectangular" height={118} />
+        </Stack>
+      </div>
     </div>
     
   );
