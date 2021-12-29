@@ -47,13 +47,9 @@ function Dashboard(props) {
   return(
     <div>
       <div className=''>
-          <Navigation props={props}/>
-          <div>
-            
-          </div>
+        <Navigation props={props}/>
       </div>
       <h2>Dashboard</h2>
-      {/* <input type="button" onClick={handleLogout} value="Logout" /> */}
     </div>
     
   );

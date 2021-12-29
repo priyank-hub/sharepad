@@ -1,6 +1,6 @@
 import React from 'react';
 import { getUser, removeUserSession } from '../Utils/Common';
-import Logo from '../assets/logos/2.png'
+import logo from '../assets/logos/SharePadIcon.png';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -17,7 +17,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 function Navigation(props) {
 
-  const pages = ['Products', 'Pricing', 'Blog'];
+  const pages = [];
   const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -50,7 +50,7 @@ function Navigation(props) {
   return(
     <div>
         <div className=''>
-          <AppBar position="static">
+          <AppBar position="static" style={{ backgroundColor: '#3C366B' }}>
             <Container maxWidth="xl">
               <Toolbar disableGutters>
                 <Typography
@@ -59,7 +59,7 @@ function Navigation(props) {
                   component="div"
                   sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                 >
-                  LOGO
+                  <Avatar alt="" src={logo}/>
                 </Typography>
 
                 <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -98,14 +98,16 @@ function Navigation(props) {
                     ))}
                   </Menu>
                 </Box>
+                
                 <Typography
                   variant="h6"
                   noWrap
                   component="div"
                   sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
                 >
-                  LOGO
+                  <Avatar alt="" src={logo}/>
                 </Typography>
+
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                   {pages.map((page) => (
                     <Button
