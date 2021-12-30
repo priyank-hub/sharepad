@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { setUserSession } from '../Utils/Common';
 import logo from '../assets/logos/SharePadColored.png';
-
+import { NavLink } from "react-router-dom";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
@@ -87,8 +87,21 @@ function Register(props) {
               <TextField {...last_name} fullWidth label="Last Name" className='my-3' required/>
               <TextField {...email} type={'email'} fullWidth label="Email" className='my-3' required/>
               <TextField {...password} type={'password'} fullWidth label="Password" className='my-3' required/>
-              <input type="submit" className='btn' style={{ color: '#fff', backgroundColor: '#3C366B' }} value={loading ? 'Loading...' : 'Sign Me In'} disabled={loading}>
-              </input>
+              
+              <div className='row align-items-center'>
+                <div className='col-6 text-left' style={{ color: '#3C366B' }}>
+                  <span style={{ fontSize: '14px' }}>Already have an account? </span>
+                  <span>
+                  <NavLink className="navbar-item" to="/login" style={{ fontSize: '15px', fontWeight: '700' }}>
+                    Log In
+                  </NavLink>
+                  </span>
+                </div>
+                <div className='col-6 text-right'>
+                  <input type="submit" className='btn' style={{ color: '#fff', backgroundColor: '#3C366B' }} value={loading ? 'Loading...' : 'Sign Me In'} disabled={loading}>
+                  </input>
+                </div>
+              </div>
             </form>
           </Box>
         </div>

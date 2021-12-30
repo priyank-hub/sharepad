@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { setUserSession } from '../Utils/Common';
 import logo from '../assets/logos/SharePadColored.png';
+import { NavLink } from "react-router-dom";
 
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -62,8 +63,21 @@ function Login(props) {
             <div className="my-3">
               {error && <><small style={{ color: 'black' }}>{error}</small><br /></>}
             </div>
-            <input type="submit" className='btn' style={{ color: '#fff', backgroundColor: '#3C366B' }} value={loading ? 'Loading...' : 'Sign Me In'} disabled={loading}>
-            </input>
+
+            <div className='row align-items-center'>
+              <div className='col-6 text-left' style={{ color: '#3C366B' }}>
+                <span style={{ fontSize: '14px' }}>New to SharePad? </span>
+                <span>
+                <NavLink className="navbar-item" to="/register" style={{ fontSize: '15px', fontWeight: '700' }}>
+                  Register
+                </NavLink>
+                </span>
+              </div>
+              <div className='col-6 text-right'>
+                <input type="submit" className='btn' style={{ color: '#fff', backgroundColor: '#3C366B' }} value={loading ? 'Loading...' : 'Sign Me In'} disabled={loading}>
+                </input>
+              </div>
+            </div>
           </form>
         </Box>
       </div>
