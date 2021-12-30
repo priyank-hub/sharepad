@@ -1,6 +1,7 @@
 import React from 'react';
 import { getUser, removeUserSession } from '../Utils/Common';
 import logo from '../assets/logos/SharePadIcon.png';
+import { NavLink } from "react-router-dom";
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -63,7 +64,9 @@ function Navigation(props) {
                   component="div"
                   sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                 >
-                  <Avatar alt="" src={logo}/>
+                  <NavLink className="navbar-item" to="/">
+                    <Avatar alt="" src={logo}/>
+                  </NavLink>
                 </Typography>
 
                 <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -146,8 +149,10 @@ function Navigation(props) {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                   >
-                    <MenuItem onClick={handleProfile}>
-                      <Typography textAlign="center">Profile</Typography>
+                    <MenuItem>
+                      <NavLink className="navbar-item" to={`/profile/${user.first_name}`} style={{ fontSize: '15px', fontWeight: '700' }}>
+                        <Typography textAlign="center">Profile</Typography>
+                      </NavLink>
                     </MenuItem>
                     <MenuItem onClick={handleLogout}>
                       <Typography textAlign="center">Logout</Typography>

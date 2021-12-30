@@ -25,7 +25,7 @@ function Login(props) {
       const user = response.data;
       console.log('response', user);
       setUserSession(response.data.token, user);
-      props.history.push('/dashboard');
+      props.history.push('/');
     }).catch(error => {
       setLoading(false);
       if (error.response.status === 401) setError(error.response.data.message);

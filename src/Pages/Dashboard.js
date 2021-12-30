@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
+
+import Profile from './Profile/Profile';
+import EditProfile from './Profile/EditProfile';
+import Posts from '../Pages/Posts/Posts';
+
+import PrivateRoute from '../Utils/PrivateRoute';
 import { getUser, removeUserSession } from '../Utils/Common';
 import Navigation from '../Components/Navigation';
 import axios from 'axios';
-
-import Skeleton from '@mui/material/Skeleton';
-import Stack from '@mui/material/Stack';
 
 function Dashboard(props) {
 
@@ -48,68 +52,52 @@ function Dashboard(props) {
   // const handlePhoto = (e) => {
   //     setNewUser({...newUser, photo: e.target.files[0]});
   // }
-  
-  let skeleton = [];
-  for (let i=0; i<10; i++) {
-    skeleton.push(
-      <div>
-        <div className='d-flex flex-row justify-content-start align-items-center'>
-          <Skeleton variant="circular" width={50} height={50} className='col-4 mb-2 mt-4'/>
-          <div className='col-8 d-flex flex-column justify-content-end'>
-            <Skeleton variant="rectangular" height={10} width={100} className='m-3'/>
-            <Skeleton variant="rectangular" height={10} width={200} className='mx-3 '/>
-          </div>
-        </div>
-        <Skeleton variant="rectangular" height={350} />
-      </div>
-    );
-  }
 
   return(
     <div>
-      <div className=''>
-        <Navigation props={props}/>
-      </div>
-      <div className='container my-4'>
-        <div className='row'>
-          <div className='col-12 col-md-6 mx-auto'>
-            <Stack spacing={1}>
-              {skeleton}
-            </Stack>
-          </div>
+      <Router>
+        <div className=''>
+          <Navigation props={props}/>
         </div>
-      </div>
+        <div className="content">
+          <Switch>
+            <PrivateRoute exact path="/profile/edit" component={EditProfile} />
+            <PrivateRoute exact path="/profile/:name" component={Profile} />
+            <PrivateRoute path="/" component={Posts} />
+          </Switch>
+        </div>
 
-      {/* <div>
-        <form onSubmit={handleSubmit} encType='multipart/form-data' className='flex flex-col'>
-          <input 
-              type="file" 
-              accept=".png, .jpg, .jpeg"
-              name="photo"
-              onChange={handlePhoto}
-          />
-
-          <input 
-              type="text"
-              placeholder="name"
-              name="name"
-              value={newUser.name}
-              onChange={handleChange}
-          />
-
+        {/* <div>
+          <form onSubmit={handleSubmit} encType='multipart/form-data' className='flex flex-col'>
             <input 
-              type="text"
-              placeholder="name"
-              name="bio"
-              value={newUser.bio}
-              onChange={handleChange}
+                type="file" 
+                accept=".png, .jpg, .jpeg"
+                name="photo"
+                onChange={handlePhoto}
             />
 
-          <input 
-              type="submit"
-          />
-        </form>
-      </div> */}
+            <input 
+                type="text"
+                placeholder="name"
+                name="name"
+                value={newUser.name}
+                onChange={handleChange}
+            />
+
+              <input 
+                type="text"
+                placeholder="name"
+                name="bio"
+                value={newUser.bio}
+                onChange={handleChange}
+              />
+
+            <input 
+                type="submit"
+            />
+          </form>
+        </div> */}
+      </Router>
     </div>
     
   );
