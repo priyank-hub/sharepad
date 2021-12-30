@@ -21,12 +21,8 @@ function Login(props) {
     console.log('handlelogin');
     axios.post('http://localhost:5000/user/login', { email: email.value, password: password.value }).then(response => {
       setLoading(false);
-      console.log('response', response);
-      const user = {
-        first_name: response.data.first_name,
-        last_name: response.data.last_name,
-        email: response.data.email, 
-      }
+      const user = response.data;
+      console.log('response', user);
       setUserSession(response.data.token, user);
       props.history.push('/dashboard');
     }).catch(error => {

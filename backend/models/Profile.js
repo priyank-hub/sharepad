@@ -6,10 +6,10 @@ const { isEmail } = validator;
 //Todo close friend,highlights
 const profileSchema = new mongoose.Schema(
   {
-    // user: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: 'User',
-    // },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+    },
     bio: {
       type: String,
       trim: true,
