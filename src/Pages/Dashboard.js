@@ -54,10 +54,10 @@ function Dashboard(props) {
     skeleton.push(
       <div>
         <div className='d-flex flex-row justify-content-start align-items-center'>
-          <Skeleton variant="circular" width={50} height={50} className='mb-2 mt-4'/>
-          <div className='d-flex flex-column justify-content-end'>
+          <Skeleton variant="circular" width={50} height={50} className='col-4 mb-2 mt-4'/>
+          <div className='col-8 d-flex flex-column justify-content-end'>
             <Skeleton variant="rectangular" height={10} width={100} className='m-3'/>
-            <Skeleton variant="rectangular" height={10} width={300} className='mx-3 '/>
+            <Skeleton variant="rectangular" height={10} width={200} className='mx-3 '/>
           </div>
         </div>
         <Skeleton variant="rectangular" height={350} />
