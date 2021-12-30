@@ -51,9 +51,18 @@ function Dashboard(props) {
   
   let skeleton = [];
   for (let i=0; i<10; i++) {
-    skeleton.push(<div><Skeleton variant="text" />
-    <Skeleton variant="circular" width={40} height={40} />
-    <Skeleton variant="rectangular" height={118} /></div>);
+    skeleton.push(
+      <div>
+        <div className='d-flex flex-row justify-content-start align-items-center'>
+          <Skeleton variant="circular" width={50} height={50} className='mb-2 mt-4'/>
+          <div className='d-flex flex-column justify-content-end'>
+            <Skeleton variant="rectangular" height={10} width={100} className='m-3'/>
+            <Skeleton variant="rectangular" height={10} width={300} className='mx-3 '/>
+          </div>
+        </div>
+        <Skeleton variant="rectangular" height={350} />
+      </div>
+    );
   }
 
   return(

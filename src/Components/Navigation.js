@@ -45,12 +45,16 @@ function Navigation(props) {
     }   
   }
 
+  const handleProfile = () => {
+
+  }
+
   const user = getUser();
   
   return(
     <div>
         <div className=''>
-          <AppBar position="static" style={{ backgroundColor: '#3C366B' }}>
+          <AppBar position="sticky" style={{ backgroundColor: '#3C366B' }}>
             <Container maxWidth="xl">
               <Toolbar disableGutters>
                 <Typography
@@ -142,6 +146,9 @@ function Navigation(props) {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                   >
+                    <MenuItem onClick={handleProfile}>
+                      <Typography textAlign="center">Profile</Typography>
+                    </MenuItem>
                     <MenuItem onClick={handleLogout}>
                       <Typography textAlign="center">Logout</Typography>
                     </MenuItem>
